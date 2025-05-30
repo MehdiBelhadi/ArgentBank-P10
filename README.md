@@ -8,7 +8,7 @@ Banking application created with React, Redux and MongoDB
 
 Argent Bank uses the following tech stack:
 
-- [Node.js v20](https://nodejs.org/en/)
+- [Node.js](https://nodejs.org/en/)
 - [MongoDB Community Server](https://www.mongodb.com/try/download/community)
 
 ### Instructions
