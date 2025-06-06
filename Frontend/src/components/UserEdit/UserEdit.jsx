@@ -24,6 +24,10 @@ function UserEdit() {
   // Envoi du nouveau username lors de la soumission du formulaire
   const handleUsernameEdit = (e) => {
     e.preventDefault();
+
+    if (!userName.trim()) { //correction soutenance
+      return; // Ne fait rien si le champ est vide ou uniquement des espaces
+    }
     const username = {
       userName: userName,
     };
@@ -50,6 +54,7 @@ function UserEdit() {
             content={"Edit Name"}
             className={"edit-button"}
             onClick={(e) => handleToggle(e)}
+            disabled={!userName.trim()} // correction soutenance
           />
         </>
       ) : (
