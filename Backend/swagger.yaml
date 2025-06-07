@@ -101,14 +101,14 @@ paths:
           description: Invalid Fields
         "500":
           description: Internal Server Error
-  /accounts/{account_id}/transactions:
+  /accounts/{account_id}/transactions/monthly:
     get:
       security:
         - Bearer: []
       tags:
         - Account Module
-      summary: Get account transactions
-      description: API to retrieve transactions for a specific account
+      summary: Get current month's account transactions
+      description: Retrieve all transactions for the specified account that occurred during the current month.
       produces:
         - application/json
       parameters:
@@ -123,8 +123,8 @@ paths:
           description: Transactions retrieved successfully
           schema:
             $ref: "#/definitions/AccountTransactionsResponse"
-        "400":
-          description: Invalid Request
+        "404":
+          description: Not Found
         "500":
           description: Internal Server Error
   /accounts/{account_id}/transactions/{transaction_id}:
@@ -155,11 +155,11 @@ paths:
           description: Transaction details retrieved successfully
           schema:
             $ref: "#/definitions/TransactionDetailsResponse"
-        "400":
-          description: Invalid Request
+        "404":
+          description: Not Found
         "500":
           description: Internal Server Error
-    put:
+    patch:
       security:
         - Bearer: []
       tags:
@@ -194,6 +194,8 @@ paths:
             $ref: "#/definitions/TransactionDetailsResponse"
         "400":
           description: Invalid Fields
+        "404":
+          description: Not Found
         "500":
           description: Internal Server Error
 securityDefinitions:
